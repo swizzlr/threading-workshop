@@ -28,7 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func doTheFibonacci() {
-        let thread = Thread()
+        let thread = Thread(block: { () -> Void in
+            wait(5)
+            AppDelegate.fibonacciResult = fibonacci(n: aManageableAmountOfFibonacciWork)
+        })
         // define the fibonacci code!
         thread.start()
     }
