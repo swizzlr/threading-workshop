@@ -28,3 +28,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+/// Prints the nth number in the fibonacci sequence
+private func fibonacci(n: Int) -> Decimal {
+    var num1: Decimal = 0
+    var num2: Decimal = 1
+    
+    for _ in 0 ..< n {
+        
+        let num = num1 + num2
+        num1 = num2
+        num2 = num
+    }
+    
+    return num2
+}
+
