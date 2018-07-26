@@ -9,6 +9,7 @@
 import UIKit
 
 private let aPrettyHeftyAmountOfFibonacciWork = 200000000
+var fibonacciResult: Decimal? = nil
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,13 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        block()
+        doTheFibonacci()
         return true
     }
     
-    func block() {
-        // Block the main thread here
-        _ = fibonacci(n: aPrettyHeftyAmountOfFibonacciWork)
+    func doTheFibonacci() {
+        // make this not block the main thread!
+        fibonacciResult = fibonacci(n: aPrettyHeftyAmountOfFibonacciWork)
     }
 
 }
