@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let aPrettyHeftyAmountOfFibonacciWork = 200000000
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -21,9 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func block() {
         // Block the main thread here
-        while true {
-            // do nothing!
-        }
+        _ = fibonacci(n: aPrettyHeftyAmountOfFibonacciWork)
     }
 
 }
