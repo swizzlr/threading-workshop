@@ -33,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 private final class FibonacciThread: Thread {
     override func main() {
         AppDelegate.fibonacciResult = fibonacci(n: aPrettyHeftyAmountOfFibonacciWork)
-        ViewController.shared!.updateLabel(decimal: AppDelegate.fibonacciResult!)
     }
 }
 

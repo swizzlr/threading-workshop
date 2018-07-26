@@ -9,19 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
-    static var shared: ViewController? = nil
 
     @IBOutlet weak var label: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        ViewController.shared = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        // maybe we should do something here...?
-        
+        // wait for fibonacci result
+        repeat {
+            // do nothing
+        } while AppDelegate.fibonacciResult == nil
+        updateLabel(decimal: AppDelegate.fibonacciResult!)
     }
     
     func updateLabel(decimal: Decimal) {
