@@ -15,11 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        block()
         return true
     }
     
     func block() {
         // Block the main thread here
+        while true {
+            // do nothing!
+        }
     }
 
 }
