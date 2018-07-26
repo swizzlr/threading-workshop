@@ -9,12 +9,12 @@
 import UIKit
 
 private let aPrettyHeftyAmountOfFibonacciWork = 200000000
-var fibonacciResult: Decimal? = nil
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    static var fibonacciResult: Decimal? = nil
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -32,7 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // Subclass a thread, implement main
 private final class FibonacciThread: Thread {
     override func main() {
-        fibonacciResult = fibonacci(n: aPrettyHeftyAmountOfFibonacciWork * 2)
+        AppDelegate.fibonacciResult = fibonacci(n: aPrettyHeftyAmountOfFibonacciWork)
+        ViewController.shared!.updateLabel(decimal: AppDelegate.fibonacciResult!)
     }
 }
 
