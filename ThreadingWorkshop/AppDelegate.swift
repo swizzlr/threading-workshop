@@ -33,34 +33,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func doTheFibonacci() {
-        let thread1 = Thread(block: { () -> Void in
+        let work1 = { () -> Void in
             wait(1)
             AppDelegate.fibonacciResult = fibonacci(n: aManageableAmountOfFibonacciWork)
             AppDelegate.fibonacciCalc1Done = true
-        })
+        }
         
-        let thread2 = Thread(block: { () -> Void in
+        let work2 = { () -> Void in
             wait(2)
             AppDelegate.fibonacciResult = fibonacci(n: aManageableAmountOfFibonacciWork)
-            AppDelegate.fibonacciCalc2Done = true
-        })
+            AppDelegate.fibonacciCalc1Done = true
+        }
         
-        let thread3 = Thread(block: { () -> Void in
+        let work3 = { () -> Void in
             wait(3)
             AppDelegate.fibonacciResult = fibonacci(n: aManageableAmountOfFibonacciWork)
-            AppDelegate.fibonacciCalc3Done = true
-        })
+            AppDelegate.fibonacciCalc1Done = true
+        }
         
-        let thread4 = Thread(block: { () -> Void in
+        let work4 = { () -> Void in
             wait(4)
             AppDelegate.fibonacciResult = fibonacci(n: aManageableAmountOfFibonacciWork)
-            AppDelegate.fibonacciCalc4Done = true
-        })
+            AppDelegate.fibonacciCalc1Done = true
+        }
         // define the fibonacci code!
-        thread1.start()
-        thread2.start()
-        thread3.start()
-        thread4.start()
+        DispatchQueue.global().async(execute: work1)
+        DispatchQueue.global().async(execute: work2)
+        DispatchQueue.global().async(execute: work3)
+        DispatchQueue.global().async(execute: work4)
     }
 
 }
