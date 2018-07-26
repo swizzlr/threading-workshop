@@ -23,10 +23,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func doTheFibonacci() {
-        // make this not block the main thread!
-        fibonacciResult = fibonacci(n: aPrettyHeftyAmountOfFibonacciWork)
+        let thread = FibonacciThread()
+        thread.start()
     }
 
+}
+
+// Subclass a thread, implement main
+private final class FibonacciThread: Thread {
+    override func main() {
+        fibonacciResult = fibonacci(n: aPrettyHeftyAmountOfFibonacciWork * 2)
+    }
 }
 
 /// Prints the nth number in the fibonacci sequence
