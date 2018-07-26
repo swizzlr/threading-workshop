@@ -21,7 +21,10 @@ class ViewController: UIViewController {
         // wait for fibonacci result
         repeat {
             // nothing!
-        } while AppDelegate.fibonacciResult == nil
+        } while !AppDelegate.fibonacciCalc1Done
+            && !AppDelegate.fibonacciCalc2Done
+            && !AppDelegate.fibonacciCalc3Done
+            && !AppDelegate.fibonacciCalc4Done
         let fibonacciResult: Decimal = AppDelegate.fibonacciResult!
         updateLabel(decimal: fibonacciResult)
     }
