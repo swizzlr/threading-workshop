@@ -28,18 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func doTheFibonacci() {
-        let thread = FibonacciThread()
+        let thread = Thread()
+        // define the fibonacci code!
         thread.start()
     }
 
-}
-
-// Subclass a thread, implement main
-private final class FibonacciThread: Thread {
-    override func main() {
-        wait(5)
-        AppDelegate.fibonacciResult = fibonacci(n: aManageableAmountOfFibonacciWork)
-    }
 }
 
 /// Prints the nth number in the fibonacci sequence
