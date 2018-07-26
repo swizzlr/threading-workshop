@@ -9,6 +9,11 @@
 import UIKit
 
 private let aPrettyHeftyAmountOfFibonacciWork = 200000000
+private let aManageableAmountOfFibonacciWork = 100
+
+func wait(_ seconds: Int) {
+    sleep(UInt32(seconds))
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,7 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // Subclass a thread, implement main
 private final class FibonacciThread: Thread {
     override func main() {
-        AppDelegate.fibonacciResult = fibonacci(n: aPrettyHeftyAmountOfFibonacciWork)
+        wait(5)
+        AppDelegate.fibonacciResult = fibonacci(n: aManageableAmountOfFibonacciWork)
     }
 }
 
